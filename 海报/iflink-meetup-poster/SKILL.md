@@ -4,8 +4,8 @@ description: >-
   IF.Link Meetup 系列活动海报的标准化生成与质检工作流。把活动信息（时间/地点/嘉宾/福利）
   规范化后，产出可直接投喂图像模型的整版提示词、局部重绘提示词、质检报告与批量清单，
   稳定复现「奶油白画布 + 深黑灰墨块 + 荧光绿 #B1FA63 + 手绘线稿插画」的原作质感。
-  当用户提到 Meetup 海报、活动海报、分享会海报、沙龙海报、IF.Link 海报、复刻这张海报、
-  批量出海报，或直接给出活动时间/地点/嘉宾/福利并要求出海报时使用。
+  当用户要做 Meetup / 线下分享会 / 沙龙活动海报，要复刻这张绿黑手绘风海报，
+  或要把系列活动海报批量标准化产出时使用。
 license: MIT
 compatibility: >-
   Requires Node.js 18+ (zero npm deps) and Python 3.9+ with Pillow. Needs an image
@@ -15,11 +15,13 @@ compatibility: >-
 metadata:
   author: Verayi2007
   maintainer: Verayi2007
-  version: "2.0.0"
+  brand: IF.Link
+  version: "2.1.0"
   status: beta
   updated: "2026-10-31"
   canvas: "1024x1536 (2:3)"
   palette: "#B1FA63 / #242021 / #F6F6F1"
+  upstream: ChatGPT Image 2
 ---
 
 # IF.Link Meetup 系列活动海报生成 Skill
@@ -274,9 +276,21 @@ node scripts/build-prompt.mjs build/spec.json --out build/prompt.md --pack build
 
 > 参考图的作用是**提供"干净利落的手绘风"这一层质感**，不是提供分区。**绝对不要在提示词里指定"左边嘉宾、右边配图"这类位置** —— 一旦指定，模型必然画成模板。
 
-### Phase 4 · 六道闸门质检（G1–G6）
+### Phase 4 · 可选自检（G1–G6，不强制）
 
-生成后**逐项**过闸门，任一 FAIL 就进入 Phase 5 的对应修复，不许"整体再来一版"。
+**默认不拦。** 图看着没问题就直接交付，不用逐项打勾。
+只有出现下面这些明显症状时，才按对应项目查一遍：
+
+| 症状 | 查哪一项 |
+| --- | --- |
+| 有字写错 / 漏字 / 名字不对 | G1 内容 |
+| 整版发黄、发灰，或冒出别的颜色 | G2 配色（`--profile final`） |
+| 缩小后第一眼不是活动名 | G3 层级 |
+| 标题和正文一样粗、字体混了 | G4 字体 |
+| 出现渐变 / 3D / 照片感 | G5 图形语言 |
+| Logo 糊了或变了形 | G6 品牌资产（重新贴一次即可） |
+
+> 这张表的用途是"出问题时快速定位"，不是"交付前的关卡"。别为了打勾反过来折腾已经能用的图。
 
 | 闸门 | 检查内容 | 判定方式 |
 | --- | --- | --- |
@@ -288,7 +302,7 @@ node scripts/build-prompt.mjs build/spec.json --out build/prompt.md --pack build
 | **G6 品牌资产** | Logo 未变形、slogan 大小写正确、方位正确 | 放大到 200% 看 |
 
 ```bash
-python scripts/check-palette.py build/poster.png        # G2
+python scripts/check-palette.py build/poster.png --profile final   # G2（交付图）
 ```
 
 详细判定标准、阈值与判例见 **[references/04-qc-rules.md](references/04-qc-rules.md)**。
@@ -374,7 +388,6 @@ python scripts/brand-stamp.py <成图.png> --out <成图-branded.png>
 
 ```
 iflink-meetup-poster/
-├── SKILL.md                          # 主控（本文件）
 ├── README.md                         # 展示页：效果、流程、设计约定
 ├── references/
 │   ├── 00-methodology.md             # 原对话全链路复盘与定稿决策点
@@ -401,12 +414,13 @@ iflink-meetup-poster/
     ├── new-spec.mjs                  # 人话/填表 → spec.json（交互 / --from / --blank）
     ├── build-prompt.mjs              # 校验 + 提示词装配（零依赖 Node）
     ├── brand-stamp.py                # 出图后贴官方 Logo / slogan
-    ├── check-palette.py              # 成图配色闸门（Pillow）
+    ├── check-palette.py              # 成图配色闸门（Pillow，支持 --profile 三档）
     ├── doctor.py                     # 环境自检
     ├── fonts.py                      # 跨平台中文字体定位
     ├── make-slogan.py                # 生成规范版 slogan 图
     ├── render-poster.py              # 确定性渲染：代码画文字与版式，零错字
-    └── render-images.mjs             # 可选：把提示词接到图像 API（默认只打印请求）
+    ├── render-images.mjs             # 可选：把提示词接到图像 API（默认只打印请求）
+    └── selftest.py                   # 仓库自检：模板 / 基准 / 渲染 / 色板三态
 ```
 
 ## 8. 批量产出（系列化）

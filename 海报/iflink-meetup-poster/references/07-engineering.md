@@ -125,7 +125,8 @@ iflink-meetup-poster/
     ├── doctor.py                  环境自检
     ├── fonts.py                   跨平台字体（Win 雅黑 / mac 苹方 / Linux Noto CJK）
     ├── render-poster.py           确定性渲染（零错字，备选通道）
-    └── render-images.mjs          可选：接图像 API（默认 dry-run，不花钱）
+    ├── render-images.mjs          可选：接图像 API（默认 dry-run，不花钱）
+    └── selftest.py                仓库自检：模板 / 基准 / 渲染 / 色板三态
 ```
 
 ## 环境要求
@@ -174,16 +175,19 @@ iflink-meetup-poster/
 | 负例校验 | 8 项 E* 全部拦截（字母 x、缺时刻、色彩锁被改、slogan 被改、出现"联合主办"…） |
 | 配色闸门·正例 | 定稿 PASS：奶油白 66.3% / 墨色 11.5% / 荧光绿 9.5% / 点缀色 3.1% |
 | 配色闸门·负例 | 绿替换成参考图橙红 → FAIL（橙红 9.9%、荧光绿 0%） |
+| 配色闸门·分档 | `--profile final` 严格 / `draft` 跳过点缀色板 / `baseline` 板外色只告警 |
+| 仓库自检 | `python scripts/selftest.py` → 9 项全绿 |
 | 出图通道 | 手工（默认）/ 宿主图像工具 / API / 本机百炼 `bl` / 确定性渲染 |
 | 贴牌 | Logo 132×33 @54,40、slogan 363×23 右对齐、页眉残留清除 |
 | 短指令版 | `--compact` 产出 639 字，已用于 qwen-image-2.0 实跑 |
 
 ## 版本沿革
 
-当前 `v2.0.0` · 主色锁 `#B1FA63` / `#242021` · 画布 1024×1536（2:3）
+当前 `v2.1.0` · 主色锁 `#B1FA63` / `#242021` · 画布 1024×1536（2:3）
 
 | 版本 | 变化 |
 | --- | --- |
+| 2.1.0 | 闸门分档（final / draft / baseline）、渲染补墨色、新增 `selftest.py`；Phase 4 改为可选自检 |
 | 2.0.0 | 可分发：环境自检、跨平台字体、LICENSE |
 | 1.9.0 | agent 引导式交付；包默认落真实桌面 |
 | 1.8.x | 产物收敛为一份整合 HTML 包；提示词改"一次给 3 版" |
