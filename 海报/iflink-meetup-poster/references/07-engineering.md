@@ -93,6 +93,7 @@ IF.Link Meetup #17 投喂包/
 ```text
 iflink-meetup-poster/
 ├── SKILL.md                       主控：触发条件 + 五步引导 + 六阶段 SOP + 红线
+├── README.md                      展示页：效果、流程、设计约定
 ├── references/
 │   ├── 00-methodology.md          原对话全链路复盘 → 四条方法论
 │   ├── 01-visual-system.md        视觉体系反拆（坐标级 / 取色级）

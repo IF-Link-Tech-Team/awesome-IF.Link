@@ -7,13 +7,14 @@
 ```text
 <分类>/<slug>/
 ├── SKILL.md       # 必须。触发条件 → 执行流程 → 硬性约束
+├── README.md      # 可选。给人看的展示页（效果、流程、设计约定），不写执行规则
 ├── references/    # 可选。方法论、规范、异常处理，按需加载
 ├── templates/     # 可选。可直接复制的入参样例
 ├── scripts/       # 可选。可执行、可自检
 └── assets/        # 可选。只放这个技能私有的素材
 ```
 
-不需要技能级 `README.md`：索引统一在仓库根 README，说明写进 `SKILL.md` 和 `references/`，避免两处维护。
+技能级 `README.md` 只放展示内容，规则和安装细节仍写进 `SKILL.md` / `references/`，避免同一件事写两遍。索引统一在仓库根 README。
 
 ## 六条约定
 
