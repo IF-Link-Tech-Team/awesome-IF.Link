@@ -50,8 +50,19 @@ node scripts/build-prompt.mjs build/spec.json --check-only   # 输入侧拦截
 | 点缀色须落在 `#FE7733` / `#B2A1FF` | 板外异色 ≤ 1.5% | — |
 
 ```bash
-python scripts/check-palette.py build/poster.png --debug
+# 交付图（默认，严格）
+python scripts/check-palette.py build/poster.png --profile final
+
+# 文字层草稿（渲染通道产物）——跳过点缀色板，只查主色
+python scripts/check-palette.py build/rendered.png --profile draft
+
+# 仓库参考基准（旧色板时期的定稿）——板外色只告警
+python scripts/check-palette.py assets/reference/final-poster.png --profile baseline
 ```
+
+> **为什么要分档**：同一套阈值套在不同性质的图上会互相打架。
+> 定稿是风格基准：它的暖黄点缀属于定稿时的配色，用 `final` 查它必然 FAIL —— 但参考图本来就不参与配色合规判定；渲染通道只解决文字层，也不该按交付标准判。
+> 分档之后：基线能过（带告警）、草稿能过（带说明）、交付图仍然严格。
 
 **点缀色是允许的**：原作定稿就有 3.0% 的暖黄（右下角那只小奶龙），正是它让画面不发闷。判 FAIL 的不是"有异色"，而是：异色超过 2 种、单一异色超过 5%、或异色跑到文字/色块上。
 
