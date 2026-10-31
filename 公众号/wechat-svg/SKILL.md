@@ -6,6 +6,13 @@ description: >-
   diagrams, designing pure-SVG interactions without JS, or working with
   id/class/defs/marker/foreignObject compatibility. Includes inline
   SVG AttributeName whitelist.
+license: WTFPL
+metadata:
+  author: doocs/md
+  version: "1.0.0"
+  status: beta
+  updated: "2026-10-31"
+  upstream: https://github.com/doocs/md
 ---
 
 # WeChat SVG Skill
@@ -176,3 +183,7 @@ description: >-
 
 - [core-principles.md](./references/core-principles.md) — 洋葱式嵌套、模块化、局部效果收口
 - [image-integration.md](./references/image-integration.md) — `<image>` 接入与典型陷阱
+
+## 来源
+
+内容整理自 [doocs/md](https://github.com/doocs/md)（WTFPL）的公众号 SVG 实践，并按 IF.Link 的使用场景补了排查表。

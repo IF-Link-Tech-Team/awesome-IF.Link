@@ -1,13 +1,24 @@
 ---
 name: iflink-meetup-poster
-description: IF.Link Meetup 系列活动海报的标准化生成与质检工作流。把活动信息（时间/地点/嘉宾/福利）规范化后，产出可直接投喂图像模型的整版提示词、局部重绘提示词、质检报告与批量清单，稳定复现「奶油白画布 + 深黑灰墨块 + 荧光绿 #B1FA63 + 手绘线稿插画」的原作质感。当用户要做 Meetup / 线下分享会 / 沙龙活动海报，要复刻这张绿黑手绘风海报，或要把系列活动海报批量标准化产出时使用。
-whenToUse: 用户提到「Meetup 海报」「活动海报」「分享会海报」「IF.Link 海报」「复刻这张海报」「批量出海报」，或直接给出活动时间/地点/嘉宾/福利并要求出海报时。
+description: >-
+  IF.Link Meetup 系列活动海报的标准化生成与质检工作流。把活动信息（时间/地点/嘉宾/福利）
+  规范化后，产出可直接投喂图像模型的整版提示词、局部重绘提示词、质检报告与批量清单，
+  稳定复现「奶油白画布 + 深黑灰墨块 + 荧光绿 #B1FA63 + 手绘线稿插画」的原作质感。
+  当用户提到 Meetup 海报、活动海报、分享会海报、沙龙海报、IF.Link 海报、复刻这张海报、
+  批量出海报，或直接给出活动时间/地点/嘉宾/福利并要求出海报时使用。
+license: MIT
+compatibility: >-
+  Requires Node.js 18+ (zero npm deps) and Python 3.9+ with Pillow. Needs an image
+  model (ChatGPT Image 2 recommended, or an image API) for final rendering.
+  Fonts: Windows/macOS built-in, Linux needs fonts-noto-cjk. Brand assets in
+  assets/reference/ are IF.Link internal only and not covered by the MIT license.
 metadata:
-  brand: IF.Link
-  version: 1.0.0
+  author: Verayi2007
+  version: "2.0.0"
+  status: beta
+  updated: "2026-10-31"
   canvas: "1024x1536 (2:3)"
   palette: "#B1FA63 / #242021 / #F6F6F1"
-  upstream: ChatGPT Image 2
 ---
 
 # IF.Link Meetup 系列活动海报生成 Skill
@@ -142,14 +153,15 @@ python scripts/doctor.py
 | 桌面不可写 | 生成包时加 `--pack <路径>` 指到能写的地方 |
 | `node: command not found` | 只影响出提示词包；装 Node 18+ 即可 |
 
-**安装到别人机器上**（DeepSeek Harness 会扫描这些根目录）：
+**安装到别人机器上**：整个 `iflink-meetup-poster/` 目录放进 agent 的技能根目录即可。
 
 ```bash
-git clone <repo> 
-mkdir -p <项目根>/.dsh/skills
-cp -r <repo>/.dsh/skills/iflink-meetup-poster <项目根>/.dsh/skills/
-# 或放到用户级：~/.dsh/skills/
+mkdir -p ~/.agents/skills                                  # Codex / Kimi Code / DSH
+cp -R <仓库>/海报/iflink-meetup-poster ~/.agents/skills/
+# Claude Code 用 ~/.claude/skills/ 或项目级 .claude/skills/
 ```
+
+各工具的路径对照、三种入参方式的完整命令、验证记录与版本沿革，见 **[references/07-engineering.md](references/07-engineering.md)**。
 
 放好即生效（热加载，无需重启）。然后用 `references/02-input-schema.md` 里的字段填一条 spec，或直接让 agent 引导。
 
@@ -362,14 +374,15 @@ python scripts/brand-stamp.py <成图.png> --out <成图-branded.png>
 ```
 iflink-meetup-poster/
 ├── SKILL.md                          # 主控（本文件）
-├── README.md                         # 工程说明 / 安装 / 版本
 ├── references/
 │   ├── 00-methodology.md             # 原对话全链路复盘与定稿决策点
 │   ├── 01-visual-system.md           # 视觉体系反拆（坐标级）
 │   ├── 02-input-schema.md            # 入参清单、校验规则、JSON 结构
 │   ├── 03-prompt-playbook.md         # 整版 / 局部 / 精修提示词全集
 │   ├── 04-qc-rules.md                # 六道闸门判定标准与阈值
-│   └── 05-exception-playbook.md      # 症状库：症状→根因→修法
+│   ├── 05-exception-playbook.md      # 症状库：症状→根因→修法
+│   ├── 06-image-model-adapter.md     # 五条出图通道与实测结论
+│   └── 07-engineering.md             # 安装 / 运行 / 验证 / 版本沿革
 ├── assets/
 │   ├── prompt-template.md            # 提示词母版（脚本读取）
 │   └── reference/
@@ -385,7 +398,11 @@ iflink-meetup-poster/
 └── scripts/
     ├── new-spec.mjs                  # 人话/填表 → spec.json（交互 / --from / --blank）
     ├── build-prompt.mjs              # 校验 + 提示词装配（零依赖 Node）
+    ├── brand-stamp.py                # 出图后贴官方 Logo / slogan
     ├── check-palette.py              # 成图配色闸门（Pillow）
+    ├── doctor.py                     # 环境自检
+    ├── fonts.py                      # 跨平台中文字体定位
+    ├── make-slogan.py                # 生成规范版 slogan 图
     ├── render-poster.py              # 确定性渲染：代码画文字与版式，零错字
     └── render-images.mjs             # 可选：把提示词接到图像 API（默认只打印请求）
 ```
