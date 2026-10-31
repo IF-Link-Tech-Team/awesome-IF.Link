@@ -375,6 +375,7 @@ python scripts/brand-stamp.py <成图.png> --out <成图-branded.png>
 ```
 iflink-meetup-poster/
 ├── SKILL.md                          # 主控（本文件）
+├── README.md                         # 展示页：效果、流程、设计约定
 ├── references/
 │   ├── 00-methodology.md             # 原对话全链路复盘与定稿决策点
 │   ├── 01-visual-system.md           # 视觉体系反拆（坐标级）
