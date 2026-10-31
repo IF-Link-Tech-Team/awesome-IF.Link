@@ -35,6 +35,7 @@ license: MIT                         # 可选
 compatibility: Requires Node 18+, Python 3.10+ with Pillow   # 可选，≤500 字符
 metadata:                            # 可选，值必须是字符串
   author: Verayi2007
+  maintainer: Verayi2007             # 社区技能必填，写 GitHub 账号
   version: "1.0.0"
   status: beta                       # draft / beta / stable / deprecated
   updated: "2026-10-31"
@@ -57,6 +58,7 @@ metadata:                            # 可选，值必须是字符串
 - [ ] 目录名 = `name`，且符合 slug 规则
 - [ ] frontmatter 只有规范字段，自定义项在 `metadata` 里
 - [ ] `description` 含真实触发词，50–1024 字符
+- [ ] `metadata.maintainer` 已填 GitHub 账号，与根 README 的维护人一致
 - [ ] `SKILL.md` ≤ 500 行，细节已挪进 `references/`
 - [ ] 文中相对链接都能打开（中文路径记得 URL 编码）
 - [ ] 脚本能跑：`python -m py_compile` / `node --check`，`doctor.py` 全绿

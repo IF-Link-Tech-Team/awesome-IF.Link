@@ -9,6 +9,7 @@ description: >-
 license: WTFPL
 metadata:
   author: doocs/md
+  maintainer: dawnear
   version: "1.0.0"
   status: beta
   updated: "2026-10-31"

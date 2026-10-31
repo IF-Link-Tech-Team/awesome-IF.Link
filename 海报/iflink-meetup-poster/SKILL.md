@@ -14,6 +14,7 @@ compatibility: >-
   assets/reference/ are IF.Link internal only and not covered by the MIT license.
 metadata:
   author: Verayi2007
+  maintainer: Verayi2007
   version: "2.0.0"
   status: beta
   updated: "2026-10-31"
