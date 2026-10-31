@@ -7,7 +7,7 @@ IF.Link 团队的**可复用技能库**。每个目录是一份能直接交给 a
 | 场景 | 技能 | 说明 |
 | --- | --- | --- |
 | 公众号 | [公众号 SVG 约束](公众号/公众号%20SVG%20约束/SKILL.md) | 公众号文章里 SVG 动效与图片的约束 |
-| 海报 | [IF.Link Meetup 海报](海报/IF.Link%20Meetup%20海报/SKILL.md) | 输入活动信息 → 生成投喂包 → 交给图像模型出图 → 贴牌验色 |
+| 海报 | [IF.Link Meetup 海报](海报/IF.Link%20Meetup%20海报/) · [独立仓库](https://github.com/Verayi2007/iflink-meetup-poster-skill) | 输入活动信息 → 生成投喂包 → 交给图像模型出图 → 贴牌验色 |
 
 ## 结构约定
 
