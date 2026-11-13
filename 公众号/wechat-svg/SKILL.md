@@ -5,14 +5,15 @@ description: >-
   Use when adapting SVG for WeChat paste, fixing missing arrows or oversized
   diagrams, designing pure-SVG interactions without JS, or working with
   id/class/defs/marker/foreignObject compatibility. Includes inline
-  SVG AttributeName whitelist.
+  SVG AttributeName whitelist. 也用于把 HTML/设计稿导入公众号（ezDrop、Z0
+  插件）、取 mmbiz 图片固定链接、处理掉字与图案错位。
 license: WTFPL
 metadata:
   author: doocs/md
   maintainer: dawnear
-  version: "1.0.0"
+  version: "1.1.0"
   status: beta
-  updated: "2026-10-31"
+  updated: "2026-11-14"
   upstream: https://github.com/doocs/md
 ---
 
@@ -27,6 +28,8 @@ metadata:
 - 约束包含：无 `id` / `class` / `defs` / `href` 依赖
 - 需要深层 `<g>` 嵌套、透明触发器、事件冒泡组织动画
 - 需要接入 `<image>`、文本卡、外部素材，或排查 transform 串层、箭头消失、尺寸异常
+- 要把 HTML / 设计稿 / SVG 文件导入公众号编辑器，导入后掉字、图案错位
+- 需要公众号图床（`mmbiz.qpic.cn`）的图片固定链接来内联 `<image>`
 
 ## SVG AttributeName 白名单
 
@@ -86,6 +89,18 @@ metadata:
 
 详细原则见 [core-principles.md](./references/core-principles.md)。
 
+## 生产工具链：导入与取图
+
+公众号编辑器不能直接粘贴网页。实际工作流是浏览器插件 + 图床链接：
+
+- **ezDrop**（<https://ezdrop.cn>）：右侧栏，一键 / 局部导入 SVG；素材库勾选图片 →「导入 ezDrop」→「复制代码」，可取图片固定链接
+- **Z0 公众号编辑插件**（<https://plugin.zer0n.cn>，免费）：导入前检查（≥2048 字符的属性会被编辑器整条删除）、强制固定代码、图片转存、背景图兼容、暂停/重播动效
+- 保存前必须打开 Z0 的「强制固定代码」，否则长动画路径会被删
+- 保存草稿后用**手机预览**验收，桌面编辑器看不出窄屏错位
+- 图片要先上传公众号，再取 `mmbiz.qpic.cn` 固定链接，才能写进 `<image href>`
+
+完整步骤（含两种取图片链接的方法、字与图案的兜底、分段降级）见 [authoring-toolchain.md](./references/authoring-toolchain.md)。
+
 ## 已验证的交互写法
 
 ```xml
@@ -123,6 +138,7 @@ metadata:
 - 必须挂在对应对象的局部姿态层或遭遇层内部
 - 位移、旋转、出场时机由外层 `<g>` 的 `animateTransform` 控制
 - 位置用 `x` / `y`，尺寸用 `width` / `height`，不依赖外部 CSS
+- `href` 用公众号素材库的 `mmbiz.qpic.cn` 固定链接；先把图片上传/转存，再取链接，取法见 [authoring-toolchain.md](./references/authoring-toolchain.md)
 
 ```xml
 <g>
@@ -158,6 +174,7 @@ metadata:
 5. `opacity` / `visibility` 是否误伤深层
 6. `keyTimes` 与出现窗口
 7. （静态 SVG）是否仍依赖 `defs` / `id` / 百分比宽度
+8. 掉字 / 图案错位是否该降级成图片：见 [authoring-toolchain.md](./references/authoring-toolchain.md) 第 4 节
 
 ## 常见错误与固定修法
 
@@ -170,6 +187,8 @@ metadata:
 | 交互模式半新半旧 | 部分层仍用旧长按逻辑 | 全链统一 `begin` / `fill` / `restart` |
 | marker 箭头依赖 defs | 粘贴后箭头消失 | 内联展开箭头，移除 `marker-end` |
 | SVG 使用 width 100% | 粘贴后撑满编辑器 | 写死像素宽高并保留 viewBox |
+| 粗体 / 空心 / 异形字用 `<text>` 硬排 | 保存后字消失或错位 | 转成 SVG 路径或小图，再内联进主 SVG |
+| `<image href>` 用外链或缩略图地址 | 转存后图片丢失 / 变糊 | 先上传公众号，取 `mmbiz.qpic.cn` 固定链接 |
 
 ## 新模块实施顺序
 
@@ -184,7 +203,8 @@ metadata:
 
 - [core-principles.md](./references/core-principles.md) — 洋葱式嵌套、模块化、局部效果收口
 - [image-integration.md](./references/image-integration.md) — `<image>` 接入与典型陷阱
+- [authoring-toolchain.md](./references/authoring-toolchain.md) — ezDrop / Z0 插件、HTML 导入、图片固定链接、字与图案兜底
 
 ## 来源
 
-内容整理自 [doocs/md](https://github.com/doocs/md)（WTFPL）的公众号 SVG 实践，并按 IF.Link 的使用场景补了排查表。
+内容整理自 [doocs/md](https://github.com/doocs/md)（WTFPL）的公众号 SVG 实践，并按 IF.Link 的使用场景补了排查表。v1.1.0 起补入黄东迩 2026-11-14 演示的插件与素材流水线。
