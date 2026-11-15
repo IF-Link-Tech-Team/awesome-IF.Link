@@ -113,7 +113,7 @@ SVG 保持矢量优先；若源文件包含大画布留白，在 HTML 中使用�
 
 ### 6. 制作结尾署名 Banner
 
-需要独立制作标准 Banner 时优先安装本仓库的 [wechat-banner](../wechat-banner/SKILL.md)。只安装本 Skill 时，仍可使用包内可编辑的 [assets/credits-banner-template.html](assets/credits-banner-template.html)，画布为 `900 × 373px`。已有确认的活动专属结尾时优先延续，不自动替换或额外追加标准 Banner。以下模板规则适用于标准署名版；[assets/examples/IF.Link_推送banner_署名版_900px.png](assets/examples/IF.Link_推送banner_署名版_900px.png) 作为其视觉回归基准。
+需要独立制作标准 Banner 时优先安装本仓库的 [wechat-banner](../../视觉资产/wechat-banner/SKILL.md)。只安装本 Skill 时，仍可使用包内可编辑的 [assets/credits-banner-template.html](assets/credits-banner-template.html)，画布为 `900 × 373px`。已有确认的活动专属结尾时优先延续，不自动替换或额外追加标准 Banner。以下模板规则适用于标准署名版；[assets/examples/IF.Link_推送banner_署名版_900px.png](assets/examples/IF.Link_推送banner_署名版_900px.png) 作为其视觉回归基准。
 
 模板中的英文/数字与中文必须继续使用 `.latin`、`.cjk` 分段，以复现最新示例的 Google Sans Flex + 思源黑体混排效果。修改署名、二维码标签或右下角介绍时只替换 HTML 文本，不改变坐标和字号；最终按 `900 × 373px` 截图导出真实 PNG。
 

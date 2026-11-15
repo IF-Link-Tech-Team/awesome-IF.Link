@@ -108,7 +108,7 @@ def render(rows, out):
     dt = ImageDraw.Draw(tmp)
     sl_b = dt.textbbox((52, slogan_y), 'Link the IFs, connect the Dots.', font=f_slogan)
     tb2 = dt.textbbox((0, 0), tag2, font=f_tag)
-    y2 = sl_b[3] - (tb2[3] - tb2[1])
+    y2 = sl_b[3] - tb2[3]
     y1 = y2 - line_h
     H = sl_b[3] + 42
     if H != 373:

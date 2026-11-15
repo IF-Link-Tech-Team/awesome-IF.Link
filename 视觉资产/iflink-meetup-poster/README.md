@@ -180,7 +180,7 @@ $ python scripts/check-palette.py poster.png
 
 ## 目录
 
-Skill 本体在仓库的 `海报/iflink-meetup-poster/`：
+Skill 本体在仓库的 `视觉资产/iflink-meetup-poster/`：
 
 ```text
 iflink-meetup-poster/

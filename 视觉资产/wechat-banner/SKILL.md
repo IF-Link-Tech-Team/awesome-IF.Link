@@ -10,9 +10,9 @@ compatibility: Requires Python 3 with Pillow for PNG export; a modern browser fo
 metadata:
   author: IF.Link
   maintainer: dawnear
-  version: "1.2.0"
+  version: "1.2.1"
   status: beta
-  updated: "2026-11-15"
+  updated: "2026-11-16"
 ---
 
 # IF.Link 公众号底部 Banner
@@ -79,6 +79,7 @@ SVG 模板遵循固定尺寸和静态结构约束：显式 `width="900"`、`heig
 
 - 成品必须恰好为 **900×373 px**，黑色背景，无白边、滚动条、缩放或裁切。
 - 左侧署名起点为 `x=52`；二维码和社区介绍的右边缘为 `x=850`，即左右边距分别约 52px 和 50px。
+- 英文 slogan 与社区介绍第二行必须按实际墨迹底边对齐，不能只对齐行框；PNG、HTML 和 SVG 使用同一底边基准。
 - 所有字体、Logo、二维码均使用本 Skill 的 `assets/`；不得依赖原生成包或外部绝对路径。
 - 署名区在左上角，角色为橙色、姓名为白色；二维码在右上，Logo 在左下，社区介绍在右下。
 - 不将二维码缩糊、拉伸或截断，不自行换成其他账号的二维码。

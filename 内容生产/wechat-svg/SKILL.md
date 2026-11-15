@@ -11,9 +11,9 @@ license: WTFPL
 metadata:
   author: doocs/md
   maintainer: dawnear
-  version: "1.1.0"
+  version: "1.2.0"
   status: beta
-  updated: "2026-11-14"
+  updated: "2026-11-16"
   upstream: https://github.com/doocs/md
 ---
 
@@ -219,3 +219,5 @@ python3 -m unittest discover -s tests
 ## 来源
 
 内容整理自 [doocs/md](https://github.com/doocs/md)（WTFPL）的公众号 SVG 实践，并按 IF.Link 的使用场景补了排查表。v1.1.0 起补入黄东迩 2026-11-14 演示的插件与素材流水线。
+
+IF.Light 的来源关系、固定提交快照和归档状态见 [资料/IF.Light](../../资料/IF.Light.md)。

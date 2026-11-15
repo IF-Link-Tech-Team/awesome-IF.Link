@@ -20,7 +20,7 @@ Agent Skills 标准只要求目录里有 `SKILL.md`，把整个 `iflink-meetup-p
 
 ```bash
 mkdir -p ~/.agents/skills
-cp -R <本仓库>/海报/iflink-meetup-poster ~/.agents/skills/
+cp -R <本仓库>/视觉资产/iflink-meetup-poster ~/.agents/skills/
 ```
 
 放好后跑一次自检，全绿再往下：

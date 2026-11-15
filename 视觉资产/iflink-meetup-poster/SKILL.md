@@ -160,7 +160,7 @@ python scripts/doctor.py
 
 ```bash
 mkdir -p ~/.agents/skills                                  # Codex / Kimi Code / DSH
-cp -R <仓库>/海报/iflink-meetup-poster ~/.agents/skills/
+cp -R <仓库>/视觉资产/iflink-meetup-poster ~/.agents/skills/
 # Claude Code 用 ~/.claude/skills/ 或项目级 .claude/skills/
 ```
 
