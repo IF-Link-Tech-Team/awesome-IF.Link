@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="373" viewBox="0 0 900 373" role="img" aria-label="IF.Link 公众号无人员署名版结尾 Banner">
+  <style>
+    @font-face { font-family: "Google Sans Flex"; src: url("../assets/fonts/GoogleSansFlex.ttf") format("truetype"); font-weight: 100 1000; }
+    @font-face { font-family: "Noto Sans CJK SC"; src: url("../assets/fonts/NotoSansCJK-Regular.ttc") format("truetype"); font-weight: 400; }
+    @font-face { font-family: "Noto Sans CJK SC"; src: url("../assets/fonts/NotoSansCJK-Bold.ttc") format("truetype"); font-weight: 700; }
+    @supports not (font-size-adjust: from-font) { text { font-size-adjust: none; } }
+  </style>
+  <rect width="900" height="373" fill="#000000"/>
+
+  <g><image x="599" y="58" width="99" height="99" href="../assets/banner/qr_wechat.png"/></g>
+  <g><image x="751" y="58" width="99" height="99" href="../assets/banner/qr_xhs.png"/></g>
+  <text x="648.5" y="186" fill="#f5f5f5" font-family="Noto Sans CJK SC, sans-serif" font-size="14" text-anchor="middle">微信公众号</text>
+  <text x="800.5" y="186" fill="#f5f5f5" font-family="Noto Sans CJK SC, sans-serif" font-size="14" text-anchor="middle">小红书</text>
+
+  <g><image x="50" y="242" width="193" height="50" href="../assets/banner/logo.png"/></g>
+  <text x="52" y="328" fill="#f5f5f5" font-family="Google Sans Flex, sans-serif" font-size="20" font-weight="700">Link the IFs, connect the Dots.</text>
+  <text x="850" y="302" fill="#f5f5f5" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" text-anchor="end">源自东南大学的</text>
+  <text x="850" y="334" fill="#f5f5f5" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" text-anchor="end">AI 创客与科技交流社区</text>
+</svg>

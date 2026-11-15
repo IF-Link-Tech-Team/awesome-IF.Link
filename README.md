@@ -7,6 +7,7 @@ IF.Link 社区的可复用 Agent Skills 合集。每个技能是一个独立目�
 | 技能 | 什么时候用 | 维护人 | 状态 |
 | --- | --- | --- | --- |
 | [iflink-meetup-poster](海报/iflink-meetup-poster/SKILL.md) · [展示页](海报/iflink-meetup-poster/README.md) | 做 Meetup / 分享会 / 沙龙海报，或批量出系列活动海报 | @Verayi2007 | beta |
+| [wechat-banner](公众号/wechat-banner/SKILL.md) | 一条命令生成 IF.Link 公众号署名或无署名底部 Banner，附素材自检和 HTML/SVG 模板 | @dawnear | beta |
 | [wechat-svg](公众号/wechat-svg/SKILL.md) | 往公众号里贴 SVG、把 HTML/设计稿导入公众号、取图片固定链接，排查动效失效、掉字、箭头消失、尺寸异常 | @dawnear | beta |
 
 状态：`draft` 能用但不稳 · `beta` 可日常用 · `stable` 社区验证过 · `deprecated` 不要再用。
