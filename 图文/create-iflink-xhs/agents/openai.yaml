@@ -1,0 +1,13 @@
+interface:
+  display_name: IF.Link 小红书图文
+  short_description: 下载教程原图，按 IF.Link 视觉风格制作小红书图片与自然表达的发布文案
+  default_prompt: 使用 $create-iflink-xhs，把这篇图文教程生成 IF.Link 小红书封面、正文图片和发布文案，复用原文配图。
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

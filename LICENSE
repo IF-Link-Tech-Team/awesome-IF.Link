@@ -25,3 +25,8 @@ SOFTWARE.
 例外：各技能 `assets/` 目录下的 IF.Link 品牌素材（Logo、slogan、定稿图等）
 不随本许可证授权，仅限 IF.Link 内部及经授权场景使用。第三方素材按各自上游
 许可证处理（见对应技能 `SKILL.md` 的 `license` 字段与来源说明）。
+
+资料例外：`资料/seu-survival-guide-2.0/` 的正文和图片不适用上述 MIT 许可，
+其非商业转载授权见该目录的 LICENSE.md、README.md 与致谢.md。
+`公众号/wechat-svg/scripts/svgasset.py` 是从 IF.Light 提取的自研代码，按 MIT 许可。
+各 Skill 内附带的第三方文档和字体遵循其相邻许可证，不因目录迁移而改为 MIT。

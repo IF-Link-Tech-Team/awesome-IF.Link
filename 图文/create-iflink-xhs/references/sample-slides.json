@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "logo": "IF.Learn"
+  },
+  "pages": [
+    {
+      "type": "cover",
+      "kicker": "AI 网页开发",
+      "title": "零基础，用 AI\n做出第一个网站",
+      "subtitle": "从安装 TRAE，到把作品分享给朋友",
+      "image": {
+        "path": "../assets/tutorial-example.png"
+      }
+    },
+    {
+      "type": "body",
+      "title": "05  先检测环境，\n不要重复安装",
+      "blocks": [
+        {
+          "text": "在对话框选择 Builder，让 AI 能读写文件、执行命令，再发送下面的提示词。"
+        },
+        {
+          "type": "quote",
+          "heading": "可复制提示词",
+          "text": "请检测系统、芯片架构和 Shell，运行 node -v、npm -v，并检查 nvm / fnm。逐项汇报结果，先不要改动环境。"
+        },
+        {
+          "text": "本次使用 Node.js 22.14.0。已有 Node 22.12+ 的兼容版本可保留；不存在或不满足项目要求时，再安装。",
+          "highlights": [
+            "不存在或不满足项目要求时，再安装"
+          ]
+        },
+        {
+          "text": "检测到 nvm / fnm，优先用它切换兼容版本，避免再写入一套 PATH。Windows 看下一页，Mac 看后页。",
+          "highlights": [
+            "优先用它切换兼容版本"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "body",
+      "title": "08  创建 React 项目",
+      "blocks": [
+        {
+          "text": "让 TRAE 按顺序执行，逐条汇报；报错先处理。创建时询问安装依赖，选择 Yes。",
+          "highlights": [
+            "报错先处理"
+          ]
+        },
+        {
+          "type": "code",
+          "parts": [
+            {
+              "heading": "1. 设置国内镜像",
+              "text": "npm config set registry https://registry.npmmirror.com\nnpm config get registry"
+            },
+            {
+              "heading": "2. 创建项目并安装依赖",
+              "text": "npm create vite@latest my-react-app -- --template react-ts\ncd my-react-app\nnpm install"
+            }
+          ]
+        },
+        {
+          "text": "长命令换行仅为排版，复制时合并。保留模板文件，后续在 my-react-app 内开发。",
+          "highlights": [
+            "复制时合并",
+            "保留模板文件"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "body",
+      "title": "15  安装 CLI 并登录",
+      "blocks": [
+        {
+          "text": "CLI 是终端部署工具。让 AI 依次安装、检查版本，再登录；版本至少为 1.0.5。",
+          "highlights": [
+            "版本至少为 1.0.5"
+          ]
+        },
+        {
+          "type": "code",
+          "text": "npm i -g @iga-pages/cli@latest\niga --version\niga login"
+        },
+        {
+          "text": "iga login 会打开火山引擎登录页。按提示登录或注册并授权；安装 CLI 本身不会完成登录。",
+          "highlights": [
+            "安装 CLI 本身不会完成登录"
+          ]
+        },
+        {
+          "text": "把完整报错交给 AI，检查 Node 版本和 npm 网络后重试。已安装则先检查版本。",
+          "lead": "安装失败"
+        },
+        {
+          "text": "返回 TRAE，发送下框提示词。",
+          "lead": "登录完成"
+        },
+        {
+          "type": "quote",
+          "text": "已登录，请用 IGA Pages Skill 部署 my-react-app。"
+        }
+      ]
+    },
+    {
+      "type": "ending",
+      "label": "从想法到作品",
+      "title": "你的第一个网站，\n现在可以分享了",
+      "blocks": [
+        {
+          "heading": "本篇完成",
+          "text": "安装 TRAE，配置环境与项目。\n写清需求、开发网页，部署后分享。",
+          "align": "center"
+        },
+        {
+          "heading": "下一篇",
+          "text": "AI 为什么能写代码、操作工具？\n继续认识 Agent 的工作原理。",
+          "align": "center"
+        }
+      ]
+    }
+  ]
+}

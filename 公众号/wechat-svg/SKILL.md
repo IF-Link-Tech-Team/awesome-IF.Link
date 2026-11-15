@@ -205,6 +205,17 @@ metadata:
 - [image-integration.md](./references/image-integration.md) — `<image>` 接入与典型陷阱
 - [authoring-toolchain.md](./references/authoring-toolchain.md) — ezDrop / Z0 插件、HTML 导入、图片固定链接、字与图案兜底
 
+## 形状 SVG 清洗脚本
+
+本技能附带从 IF.Light 提取的 [scripts/svgasset.py](scripts/svgasset.py)，将纯形状图标转为可内联的 SVG，保留原来的 Python `sanitize` / `place` 调用入口，并提供命令行：
+
+```bash
+python3 scripts/svgasset.py input.svg --output output.svg
+python3 -m unittest discover -s tests
+```
+
+这是有损的兼容转换：渐变会压成纯色，文字、图片、滤镜、遮罩、裁切和动画不会被保留。仅对有权修改的纯形状素材使用，转换后与原图对照；不要对完整图文或不可信输入当作安全消毒器使用。详情见 [iflight-svg.md](./references/iflight-svg.md)。
+
 ## 来源
 
 内容整理自 [doocs/md](https://github.com/doocs/md)（WTFPL）的公众号 SVG 实践，并按 IF.Link 的使用场景补了排查表。v1.1.0 起补入黄东迩 2026-11-14 演示的插件与素材流水线。

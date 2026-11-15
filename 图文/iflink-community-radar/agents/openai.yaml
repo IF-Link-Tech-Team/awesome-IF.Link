@@ -1,0 +1,7 @@
+interface:
+  display_name: "IF.Link Community Radar"
+  short_description: "Daily IF.Link radar outputs"
+  brand_color: "#B1FA63"
+  default_prompt: "Use $iflink-community-radar to turn IF.Linker AI chat records into a daily infographic, Feishu doc, and WeChat copy."
+policy:
+  allow_implicit_invocation: true
