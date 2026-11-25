@@ -5,11 +5,18 @@
   "ORGANIZER_LABEL": "联合主办",
   "ORGANIZER": "主办方名称",
   "HEADER_NOTE": "IF.LEARN WORKSHOP",
+  "TOP_LINE": "0 基础 · 120 分钟 · 现场做出成片",
   "DATE": "活动日期 星期",
   "TIME": "15:00–17:00",
   "DURATION": "120分钟",
   "LOCATION": "校区 · 活动地点",
   "INTRO": "一句话说明参与门槛与课程成果",
+  "STEP1_TITLE": "第一步要讲清楚的事",
+  "STEP1_DESC": "一句话说明这一步具体做什么",
+  "STEP2_TITLE": "第二步动手内容",
+  "STEP2_DESC": "一句话说明参与者会生成什么素材",
+  "STEP3_TITLE": "第三步收尾成片",
+  "STEP3_DESC": "一句话说明最终成品形态",
   "TOPICS": "核心工具 · 实践步骤 · 参与准备",
   "FEATURES": "作品类型 · 可自定义的方向 · 课程特色",
   "TAKEAWAY_TITLE": "课程核心收获",
@@ -22,10 +29,22 @@
   "ILLUSTRATION": "cube",
   "ROLLUP_SLOGAN": "用 AI，把想法做成作品",
   "SCHEDULE": [
-    {"title": "课程入门", "description": "一句话说明第一阶段会认识什么工具或概念。"},
-    {"title": "动手实践", "description": "一句话说明参与者会完成的核心操作。"},
-    {"title": "完善作品", "description": "一句话说明如何测试、修改或完善作品。"},
-    {"title": "成果带走", "description": "一句话说明课程成果与后续可继续探索的方向。"}
+    {
+      "title": "课程入门",
+      "description": "一句话说明第一阶段会认识什么工具或概念。"
+    },
+    {
+      "title": "动手实践",
+      "description": "一句话说明参与者会完成的核心操作。"
+    },
+    {
+      "title": "完善作品",
+      "description": "一句话说明如何测试、修改或完善作品。"
+    },
+    {
+      "title": "成果带走",
+      "description": "一句话说明课程成果与后续可继续探索的方向。"
+    }
   ],
   "WECHAT_TITLE": "【IF.Learn Workshop｜课程名称】",
   "WECHAT_HOOK": "从参与者想尝试但尚未做过的事情切入，用一两句话写清课程的吸引力。",
@@ -34,5 +53,6 @@
   "WECHAT_CUSTOM": "举一两个可以自行定义或修改作品的例子。",
   "REGISTRATION": "写明报名开放时间、名额、报名表和入群方式。",
   "FOLLOW_UP": "填写补充场次、答疑方式或其他报名说明。",
-  "CLOSING": "总结课程收获，并用一句话邀请大家参与。"
+  "CLOSING": "总结课程收获，并用一句话邀请大家参与。",
+  "ORGANIZER_STYLE": "logo-only"
 }

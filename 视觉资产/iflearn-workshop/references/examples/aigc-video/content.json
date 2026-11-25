@@ -1,0 +1,58 @@
+{
+  "EDITION": "AIGC 创作篇",
+  "TITLE_EN": "AIGC VIDEO",
+  "TITLE_ZH": "AIGC 视频创作入门",
+  "ORGANIZER_LABEL": "",
+  "ORGANIZER": "IF.Link 社区",
+  "HEADER_NOTE": "IF.LEARN WORKSHOP · 120 MIN",
+  "DATE": "11月27日 周五",
+  "TIME": "19:00–21:00",
+  "DURATION": "120分钟",
+  "LOCATION": "四牌楼校区 · 五四楼101教室",
+  "INTRO": "两小时，从一句提示词走到一条成片",
+  "TOPICS": "剧本分镜 · 提示词 · 豆包生成 + 剪映剪辑",
+  "FEATURES": "自带电脑 · 限额 100 人",
+  "TAKEAWAY_TITLE": "带走第一支短片",
+  "TAKEAWAY_COPY": "两小时从剧本、分镜、提示词一路做到剪映成片，带走一支 30 秒短片。",
+  "OPPORTUNITY": "第一支 AI 视频，从这个周五开始",
+  "BENEFIT_1": "看清 AIGC 的能力边界",
+  "BENEFIT_2": "会写剧本、分镜与提示词",
+  "BENEFIT_3": "在剪映成片并带走作品",
+  "QR_CAPTION": "报名二维码待补充",
+  "ILLUSTRATION_FILE": "./assets/theme-art.png",
+  "ROLLUP_SLOGAN": "用 AI，把想法做成片子",
+  "SCHEDULE": [
+    {
+      "title": "AIGC 能做什么",
+      "description": "先看清能力边界：哪些镜头 AI 一写就有，哪些还得自己拍。"
+    },
+    {
+      "title": "剧本与分镜",
+      "description": "把想讲的事拆成镜头表，决定观众先看见什么。"
+    },
+    {
+      "title": "提示词写画面",
+      "description": "把画面要求写成提示词，让 AI 生成能用的素材。"
+    },
+    {
+      "title": "剪辑成片带走",
+      "description": "在剪映里配乐、调节奏，导出你的第一支短片。"
+    }
+  ],
+  "WECHAT_TITLE": "【IF.Learn Workshop｜AIGC 视频创作入门】🎬",
+  "WECHAT_HOOK": "想用 AI 做一支自己的视频，却卡在“不知道该怎么跟它开口”🤔？这次不讲大道理，直接带你从一句话走到一条成片✨",
+  "WECHAT_DETAILS": "IF.Link 用两小时把 AIGC 视频创作走一遍：先讲清 AIGC 能做什么，再拆剧本、分镜和提示词，最后用豆包生成素材、在剪映里配乐剪辑，做出你自己的第一支短片🎬",
+  "WECHAT_STEPS": "不用会写代码，也不用先买软件：把“我想拍什么”写成提示词，让 AI 出画面，你负责挑镜头、调节奏——从剧本到成片，每一步都有人在旁边带着做。",
+  "WECHAT_CUSTOM": "想拍校园夜色、想给社团做招新片、想让主角是你自己那只猫🐱？题材随你定，我们只教方法，故事你自己写。",
+  "REGISTRATION": "报名 11 月 26 日 12:00 开放，共 100 个名额，先到先得；扫码填写报名表。",
+  "FOLLOW_UP": "视频生成部分资费较高，课上以免费工具（豆包 + 剪映）为主；如需用付费模型出片，会提前说明自行付费。",
+  "CLOSING": "课程结束，你会带走一支自己剪的 AI 短视频，以及一套能反复用的提示词写法。这个周五晚上，一起把想法做成片子🚀",
+  "ORGANIZER_STYLE": "logo-only",
+  "TOP_LINE": "0 基础 · 120 分钟 · 现场做出成片",
+  "STEP1_TITLE": "剧本 · 分镜 · 提示词",
+  "STEP1_DESC": "先把故事和镜头写清楚",
+  "STEP2_TITLE": "豆包生成素材",
+  "STEP2_DESC": "文生图、文生视频出画面",
+  "STEP3_TITLE": "剪映配乐成片",
+  "STEP3_DESC": "剪辑、配乐、加字幕"
+}

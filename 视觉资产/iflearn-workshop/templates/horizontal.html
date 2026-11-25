@@ -24,26 +24,34 @@
     .organizer-logo { width: 36px; height: 36px; object-fit: contain; }
     .organizer { font-size: 16px; font-weight: 700; }
     .header-note { margin-left: auto; font-size: 19px; font-weight: 800; letter-spacing: 1px; }
+    .topline { position: absolute; top: 100px; left: 54px; display: flex; align-items: center; gap: 12px; margin: 0; color: #777772; font-size: 15px; font-weight: 600; letter-spacing: .6px; }
+    .topline::before { content: ""; width: 24px; height: 2px; background: #ff4f0b; flex: none; }
     .kicker { position: absolute; top: 151px; left: 54px; display: flex; align-items: center; gap: 14px; margin: 0; font-size: 30px; line-height: 1.2; font-weight: 750; }
     .kicker img { width: 138px; height: 35px; object-fit: contain; }
     .title-orange { position: absolute; top: 216px; left: 54px; display: flex; align-items: center; width: 635px; height: 138px; padding: 0 22px; background: #ff4f0b; font-size: {{TITLE_EN_SIZE}}px; line-height: 1; font-weight: 900; letter-spacing: -3px; white-space: nowrap; }
     .title-black { position: absolute; top: 354px; left: 54px; display: flex; align-items: center; width: 540px; height: 90px; padding: 0 22px; background: #111110; color: #fff; font-size: {{TITLE_ZH_SIZE}}px; line-height: 1; font-weight: 800; letter-spacing: 1px; white-space: nowrap; }
-    .art { position: absolute; top: 30px; left: 825px; width: 420px; height: 465px; }
+    .art { position: absolute; top: 84px; left: 842px; width: 384px; height: 396px; }
     .art svg, .art img { display: block; width: 100%; height: 100%; object-fit: contain; }
-    .intro { position: absolute; top: 486px; left: 54px; margin: 0; font-size: 26px; line-height: 1.3; font-weight: 750; }
-    .topics { position: absolute; top: 529px; left: 54px; margin: 0; color: #555550; font-size: 18px; line-height: 1.4; }
-    .session { position: absolute; top: 570px; left: 54px; display: flex; align-items: center; height: 48px; }
-    .date { color: #d74b18; font-size: 34px; font-weight: 850; }
-    .session-divider { width: 1px; height: 28px; margin: 0 20px; background: #c4c4bf; }
-    .time { font-size: 28px; font-weight: 750; }
-    .location { position: absolute; top: 632px; left: 54px; margin: 0; font-size: 21px; font-weight: 650; }
-    .features { position: absolute; top: 674px; left: 54px; margin: 0; color: #555550; font-size: 16px; }
-    .takeaway { position: absolute; top: 500px; left: 835px; width: 390px; padding-left: 28px; border-left: 1px solid #c7c7c2; }
-    .eyebrow { margin: 0 0 13px; color: #d74b18; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; }
+    .intro { position: absolute; top: 452px; left: 54px; margin: 0; max-width: 760px; color: #111110; font-size: 22px; line-height: 1.3; font-weight: 750; }
+    .steps { position: absolute; top: 492px; left: 54px; display: flex; gap: 16px; width: 740px; }
+    .step { width: 236px; }
+    .step .num { display: block; margin-bottom: 8px; color: #ff4f0b; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; }
+    .step p { margin: 0; }
+    .step .st { margin-bottom: 6px; color: #111110; font-size: 18px; font-weight: 800; }
+    .step .sd { color: #777772; font-size: 13px; line-height: 1.45; }
+    .rule { position: absolute; top: 572px; left: 54px; width: 740px; height: 1px; background: #dcdcd7; }
+    .when { position: absolute; top: 586px; left: 54px; display: flex; align-items: baseline; gap: 16px; width: 740px; }
+    .when .date { color: #d74b18; font-size: 21px; font-weight: 850; }
+    .when .time { font-size: 21px; font-weight: 750; }
+        .where { position: absolute; top: 622px; left: 54px; width: 740px; display: flex; align-items: baseline; justify-content: space-between; }
+    .location { margin: 0; font-size: 21px; font-weight: 650; }
+    .note { color: #555550; font-size: 14px; font-weight: 600; }
+    .takeaway { position: absolute; top: 492px; left: 835px; width: 390px; padding-left: 28px; border-left: 1px solid #c7c7c2; }
+    .eyebrow { margin: 0 0 9px; color: #d74b18; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; }
     .takeaway h2 { margin: 0; font-size: 26px; line-height: 1.25; font-weight: 800; }
     .takeaway-copy { max-width: 210px; margin: 12px 0 0; color: #555550; font-size: 16px; line-height: 1.5; }
     .opportunity { max-width: 210px; margin: 16px 0 0; color: #d74b18; font-size: 14px; line-height: 1.45; font-weight: 700; }
-    .qr-code { position: absolute; top: 38px; right: 0; width: 116px; text-align: center; }
+    .qr-code { position: absolute; top: 26px; right: 0; width: 116px; text-align: center; }
     .qr-code img { display: block; width: 116px; height: 116px; padding: 4px; border: 1px solid #d4d4cf; background: #fff; object-fit: contain; }
     .qr-placeholder { display: grid; place-items: center; width: 116px; height: 116px; border: 1px dashed #aaa9a3; color: #777772; font-size: 14px; }
     .qr-code figcaption { margin-top: 8px; font-size: 13px; font-weight: 650; }
@@ -56,22 +64,23 @@
     <header class="header">
       <div class="brand">
         <img class="iflink" src="assets/logos/iflink-light-trimmed.svg" alt="IF.Link">
-        <span class="brand-divider"></span>
-        <span class="brand-note">{{ORGANIZER_LABEL}}</span>
-        {{ORGANIZER_LOGO_HTML}}
-        <span class="organizer">{{ORGANIZER}}</span>
       </div>
       <div class="header-note">{{HEADER_NOTE}}</div>
     </header>
+    <p class="topline">{{TOP_LINE}}</p>
     <h2 class="kicker"><img src="assets/logos/iflearn-light-trimmed.svg" alt="IF.Learn"><span>Workshop · {{EDITION}}</span></h2>
     <div class="title-orange">{{TITLE_EN}}</div>
     <div class="title-black">{{TITLE_ZH}}</div>
     <div class="art">{{ILLUSTRATION_HTML}}</div>
     <p class="intro">{{INTRO}}</p>
-    <p class="topics">{{TOPICS}}</p>
-    <div class="session"><span class="date">{{DATE}}</span><span class="session-divider"></span><span class="time">{{TIME}}</span></div>
-    <p class="location">{{LOCATION}}</p>
-    <p class="features">{{FEATURES}}</p>
+    <div class="steps">
+      <div class="step"><span class="num">01</span><p class="st">{{STEP1_TITLE}}</p><p class="sd">{{STEP1_DESC}}</p></div>
+      <div class="step"><span class="num">02</span><p class="st">{{STEP2_TITLE}}</p><p class="sd">{{STEP2_DESC}}</p></div>
+      <div class="step"><span class="num">03</span><p class="st">{{STEP3_TITLE}}</p><p class="sd">{{STEP3_DESC}}</p></div>
+    </div>
+    <div class="rule"></div>
+    <div class="when"><span class="date">{{DATE}}</span><span class="time">{{TIME}}</span></div>
+    <div class="where"><p class="location">{{LOCATION}}</p><span class="note">{{FEATURES}}</span></div>
     <section class="takeaway">
       <p class="eyebrow">IF.LEARN WORKSHOP</p>
       <h2>{{TAKEAWAY_TITLE}}</h2>
