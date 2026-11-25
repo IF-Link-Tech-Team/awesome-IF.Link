@@ -27,6 +27,7 @@ IF.Link 社区自研、维护的可复用 Agent Skills 合集；个别第三方�
 | --- | --- | --- | --- |
 | [iflink-meetup-poster](视觉资产/iflink-meetup-poster/SKILL.md) · [展示页](视觉资产/iflink-meetup-poster/README.md) | 做 Meetup / 分享会 / 沙龙海报，或批量出系列活动海报 | @Verayi2007 | beta |
 | [wechat-banner](视觉资产/wechat-banner/SKILL.md) | 一条命令生成 IF.Link 公众号署名或无署名底部 Banner，附素材自检和 HTML/SVG 模板 | @dawnear | beta |
+| [iflearn-workshop](视觉资产/iflearn-workshop/SKILL.md) | 生成 IF.Learn 系列横版海报、易拉宝、现场横幅和活动微信转发文案 | @YunfanGoForIt | beta |
 
 状态：`draft` 能用但不稳 · `beta` 可日常用 · `stable` 社区验证过 · `deprecated` 不要再用。
 

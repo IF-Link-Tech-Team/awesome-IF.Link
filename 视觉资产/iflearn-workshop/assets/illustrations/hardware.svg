@@ -1,0 +1,102 @@
+<svg viewBox="0 0 420 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ESP32、面包板与摇杆模块组成的蓝牙鼠标，通过蓝牙连接电脑">
+      <defs>
+        <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+          <feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#292929" flood-opacity=".14"/>
+        </filter>
+        <pattern id="breadboardHoles" width="12" height="12" patternUnits="userSpaceOnUse">
+          <circle cx="4" cy="4" r="1.45" fill="#a8aaa6"/>
+        </pattern>
+      </defs>
+
+      <g transform="translate(238 42)" filter="url(#shadow)">
+        <rect width="154" height="98" rx="8" fill="#1b1c1b"/>
+        <rect x="7" y="7" width="140" height="82" rx="2" fill="#f7f7f3"/>
+        <path d="M21 25H67M21 36H54M21 49H74" fill="none" stroke="#c2c4bf" stroke-width="5" stroke-linecap="round"/>
+        <path d="M101 29L101 61L111 51L120 69L128 65L119 48L133 47Z" fill="#ff4f0b" stroke="#111110" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M-12 99H166L177 111Q179 117 167 117H-1Q-13 117-14 111Z" fill="#b7bab7"/>
+        <path d="M-12 99H166L170 104H-16Z" fill="#d8dad6"/>
+        <rect x="61" y="105" width="34" height="5" rx="2.5" fill="#929590"/>
+      </g>
+
+      <path d="M202 213C194 177 226 168 259 151" fill="none" stroke="#ff4f0b" stroke-width="3" stroke-linecap="round" stroke-dasharray="3 9"/>
+      <g transform="translate(183 133)">
+        <rect width="42" height="42" rx="4" fill="#ff4f0b"/>
+        <path d="M21 8V34M21 8L30 16L13 29M21 21L30 29L21 34M21 21L30 16M21 21L13 14" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+
+      <g transform="translate(28 181) rotate(-4 165 122)" filter="url(#shadow)">
+        <rect width="336" height="246" rx="15" fill="#f8f8f5" stroke="#cfd1cc" stroke-width="2"/>
+        <path d="M18 17H318M18 229H318" fill="none" stroke="#ff8a73" stroke-width="2"/>
+        <path d="M18 25H318M18 221H318" fill="none" stroke="#8eb6c9" stroke-width="2"/>
+        <rect x="22" y="34" width="292" height="72" rx="3" fill="url(#breadboardHoles)"/>
+        <rect x="22" y="140" width="292" height="70" rx="3" fill="url(#breadboardHoles)"/>
+        <rect y="113" width="336" height="18" fill="#e3e4df"/>
+        <path d="M12 113H324M12 131H324" stroke="#c8cac5" stroke-width="1.5"/>
+
+        <g fill="none" stroke-width="4.5" stroke-linecap="round">
+          <path d="M62 77C97 77 82 145 120 150" stroke="#ff4f0b"/>
+          <path d="M62 94C111 99 101 190 137 195" stroke="#f2b640"/>
+          <path d="M195 63C238 32 297 65 277 128" stroke="#d74b18"/>
+          <path d="M196 82C238 69 265 86 277 128" stroke="#f2b640"/>
+          <path d="M202 105C244 101 250 113 263 132" stroke="#3157d5"/>
+          <path d="M271 188C250 232 204 229 183 201" stroke="#7652a8"/>
+          <path d="M251 188C223 208 190 183 177 158" stroke="#eeeeec" stroke-width="5.5"/>
+        </g>
+
+        <g transform="translate(34 49)">
+          <rect width="58" height="66" rx="5" fill="#3157d5"/>
+          <circle cx="8" cy="8" r="3" fill="#eeeeec"/>
+          <circle cx="50" cy="58" r="3" fill="#eeeeec"/>
+          <rect x="17" y="19" width="25" height="23" rx="2" fill="#202220"/>
+          <path d="M13 24H17M13 31H17M13 38H17M42 24H47M42 31H47M42 38H47" stroke="#c7c9c4" stroke-width="2"/>
+          <rect x="9" y="49" width="14" height="6" rx="1" fill="#d7d9d4"/>
+          <circle cx="46" cy="12" r="3.5" fill="#ff4f0b"/>
+        </g>
+
+        <g transform="translate(112 31)">
+          <rect width="100" height="184" rx="6" fill="#242624"/>
+          <path d="M7 14V168M93 14V168" stroke="#d4d6d1" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 11"/>
+          <rect x="15" y="15" width="70" height="58" rx="3" fill="#b7bab7" stroke="#8e918c" stroke-width="2"/>
+          <rect x="21" y="21" width="58" height="46" rx="2" fill="#c9cbc7"/>
+          <path d="M29 31H70M29 39H60" stroke="#a0a39e" stroke-width="2"/>
+          <text x="50" y="57" text-anchor="middle" fill="#424542" font-family="Inter Variable, sans-serif" font-size="12" font-weight="800">ESP32</text>
+          <rect x="19" y="88" width="24" height="19" rx="2" fill="#111110"/>
+          <rect x="57" y="88" width="24" height="19" rx="2" fill="#111110"/>
+          <path d="M23 120H76M23 132H63" stroke="#777b75" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="76" cy="143" r="5" fill="#ff4f0b"/>
+          <circle cx="76" cy="143" r="2" fill="#ffd5c8"/>
+          <rect x="29" y="166" width="42" height="24" rx="3" fill="#b7bab7" stroke="#858983" stroke-width="2"/>
+          <rect x="35" y="172" width="30" height="16" rx="2" fill="#555954"/>
+        </g>
+
+        <g transform="translate(232 126)">
+          <rect width="80" height="80" rx="6" fill="#262826"/>
+          <circle cx="8" cy="8" r="3" fill="#d5d7d2"/>
+          <circle cx="72" cy="8" r="3" fill="#d5d7d2"/>
+          <circle cx="8" cy="72" r="3" fill="#d5d7d2"/>
+          <circle cx="72" cy="72" r="3" fill="#d5d7d2"/>
+          <circle cx="40" cy="40" r="28" fill="#101110" stroke="#555953" stroke-width="3"/>
+          <circle cx="40" cy="35" r="20" fill="#1c1e1c"/>
+          <path d="M28 27Q40 17 52 27" fill="none" stroke="#41443f" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="40" cy="35" r="5" fill="#ff4f0b"/>
+        </g>
+
+        <g transform="translate(36 154)">
+          <rect width="24" height="46" rx="3" fill="#242624"/>
+          <rect x="7" y="-8" width="10" height="28" rx="3" fill="#b7bab7"/>
+          <path d="M12-3V14" stroke="#ff4f0b" stroke-width="2"/>
+        </g>
+        <g transform="translate(70 164)">
+          <rect width="24" height="46" rx="3" fill="#242624"/>
+          <rect x="7" y="-8" width="10" height="28" rx="3" fill="#b7bab7"/>
+          <path d="M12-3V14" stroke="#3157d5" stroke-width="2"/>
+        </g>
+      </g>
+
+      <g transform="translate(31 431)">
+        <rect width="42" height="42" fill="#111110"/>
+        <path d="M21 8V34M21 8L30 16L13 29M21 21L30 29L21 34M21 21L30 16M21 21L13 14" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="56" y="17" fill="#111110" font-family="Inter Variable, sans-serif" font-size="12" font-weight="750" letter-spacing="1.4">ESP32 · BLE HID</text>
+        <text x="56" y="35" fill="#777772" font-family="Inter Variable, sans-serif" font-size="11" font-weight="600" letter-spacing="1.2">JOYSTICK MOUSE</text>
+      </g>
+    </svg>
