@@ -62,14 +62,37 @@ const schedule = Array.isArray(config.SCHEDULE)
   ? config.SCHEDULE
   : [config.BENEFIT_1, config.BENEFIT_2, config.BENEFIT_3].filter(Boolean).map(title => ({title, description: ''}));
 const scheduleHtml = schedule.map((item, index) => `<div class="schedule-row"><h3><span>${String(index + 1).padStart(2, '0')}</span>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description || '')}</p></div>`).join('');
+const organizerStyle = config.ORGANIZER_STYLE || 'logo-only';
+const organizerParts = [];
+if (organizerStyle !== 'none') organizerParts.push(organizerLogoHtml);
+if (organizerStyle === 'text') {
+  if (config.ORGANIZER_LABEL) organizerParts.push(`<span class="organizer-label">${escapeHtml(config.ORGANIZER_LABEL)}</span>`);
+  if (config.ORGANIZER) organizerParts.push(`<span class="organizer">${escapeHtml(config.ORGANIZER)}</span>`);
+}
+const bannerOrganizerName = config.BANNER_ORGANIZER ?? config.ORGANIZER ?? '';
+const bannerOrganizerParts = [];
+if (organizerStyle !== 'none' && organizerLogoPath) bannerOrganizerParts.push(organizerLogoHtml);
+if (bannerOrganizerName) bannerOrganizerParts.push(`<span>${escapeHtml(bannerOrganizerName)}</span>`);
+const steps = [1, 2, 3].map(index => ({
+  title: config[`STEP${index}_TITLE`] ?? schedule[index - 1]?.title ?? '',
+  desc: config[`STEP${index}_DESC`] ?? schedule[index - 1]?.description ?? ''
+}));
+const stepValues = Object.fromEntries(steps.flatMap((step, index) => [
+  [`STEP${index + 1}_TITLE`, step.title],
+  [`STEP${index + 1}_DESC`, step.desc]
+]));
 const derived = {
   TITLE_EN_SIZE: titleEnSize(),
   TITLE_ZH_SIZE: titleZhSize(),
   ORGANIZER_LOGO_HTML: organizerLogoHtml,
+  ORGANIZER_BLOCK_HTML: organizerParts.join(''),
+  BANNER_ORGANIZER_HTML: bannerOrganizerParts.join(''),
   QR_HTML: qrHtml,
   ILLUSTRATION_HTML: illustrationHtml,
   ROLLUP_SLOGAN: config.ROLLUP_SLOGAN || '用 AI，把想法做成作品',
-  SCHEDULE_HTML: scheduleHtml
+  SCHEDULE_HTML: scheduleHtml,
+  TOP_LINE: config.TOP_LINE || `${config.DURATION || ''} · 现场做出作品`,
+  ...stepValues
 };
 const values = {...config, ...derived};
 
@@ -79,6 +102,14 @@ function fillTemplate(template, html) {
     const value = String(values[key]);
     return html && !Object.keys(derived).includes(key) ? escapeHtml(value) : value;
   });
+}
+
+const required = ['TITLE_EN', 'TITLE_ZH', 'DATE', 'TIME', 'LOCATION', 'REGISTRATION'];
+const missingRequired = required.filter(field => !config[field] || !String(config[field]).trim());
+if (missingRequired.length > 0) {
+  console.log('缺少以下活动信息，先向用户确认（参考 references/intake.md）：');
+  for (const field of missingRequired) console.log(`  - ${field}`);
+  process.exit(1);
 }
 
 const templates = [
@@ -145,6 +176,39 @@ try {
   });
   await call('Page.enable');
 
+  const fitExpression = `(() => {
+    const result = {};
+    for (const selector of ['.title-orange', '.title-black']) {
+      const element = document.querySelector(selector);
+      if (!element) continue;
+      const preferred = parseFloat(getComputedStyle(element).fontSize);
+      let low = 18;
+      let high = preferred;
+      const fits = size => {
+        element.style.fontSize = size + 'px';
+        return element.scrollWidth <= element.clientWidth && element.scrollHeight <= element.clientHeight;
+      };
+      if (fits(preferred)) { element.style.fontSize = preferred + 'px'; result[selector] = preferred; continue; }
+      if (!fits(low)) { element.style.fontSize = low + 'px'; result[selector] = low; continue; }
+      while (high - low > 0.6) {
+        const middle = (low + high) / 2;
+        if (fits(middle)) low = middle; else high = middle;
+      }
+      const finalSize = Math.floor(low * 10) / 10;
+      element.style.fontSize = finalSize + 'px';
+      result[selector] = finalSize;
+    }
+    return result;
+  })()`;
+
+  async function fitTitles(htmlName) {
+    const evaluation = await call('Runtime.evaluate', {expression: fitExpression, returnByValue: true});
+    const fitted = evaluation.result.value || {};
+    const report = Object.entries(fitted).map(([selector, size]) => `${selector.slice(1)}=${size}px`).join(' ');
+    if (htmlName === 'horizontal.html') console.log(`  字号实测: ${report || '无标题块'}`);
+    return fitted;
+  }
+
   async function capture(htmlName, outputName, width, height, deviceScaleFactor) {
     await call('Emulation.setDeviceMetricsOverride', {width, height, deviceScaleFactor, mobile: false});
     await call('Page.navigate', {url: pathToFileURL(join(outputDir, htmlName)).href});
@@ -161,6 +225,7 @@ try {
       await sleep(100);
     }
     if (!ready) throw new Error(`Assets did not finish loading: ${htmlName}`);
+    const fitted = await fitTitles(htmlName);
     const screenshot = await call('Page.captureScreenshot', {format: 'png', fromSurface: true});
     await writeFile(join(outputDir, outputName), Buffer.from(screenshot.data, 'base64'));
   }
@@ -176,6 +241,26 @@ try {
   chrome.kill('SIGTERM');
   await sleep(300);
   await rm(chromeProfile, {recursive: true, force: true});
+}
+
+const pending = [];
+for (const [field, label] of [
+  ['DATE', '活动日期'], ['TIME', '活动时间'], ['LOCATION', '活动地点'],
+  ['REGISTRATION', '报名方式与开放时间'], ['TAKEAWAY_TITLE', '课程核心收获']
+]) {
+  if (/待补|待定|占位|XX/i.test(String(config[field] || ''))) pending.push(`${label}（${field}）`);
+}
+if (!config.QR_IMAGE) pending.push('报名二维码（QR_IMAGE）未提供，海报上是占位框');
+if (!config.ORGANIZER) pending.push('主办方名称（ORGANIZER）未填写');
+const banned = Array.isArray(config.BANNED_TERMS) ? config.BANNED_TERMS : [];
+if (banned.length > 0) {
+  const produced = await Promise.all(templates.map(([, outputName]) => readFile(join(outputDir, outputName), 'utf8')));
+  const hits = banned.filter(term => term && produced.some(text => text.includes(term)));
+  if (hits.length > 0) console.log(`⚠️ 产物中出现禁止词：${hits.join('、')}`);
+}
+if (pending.length > 0) {
+  console.log('\n以下信息仍待与用户确认（不要当作已完成交付）：');
+  for (const item of pending) console.log(`  - ${item}`);
 }
 
 console.log(`IF.Learn workshop package generated: ${outputDir}`);
