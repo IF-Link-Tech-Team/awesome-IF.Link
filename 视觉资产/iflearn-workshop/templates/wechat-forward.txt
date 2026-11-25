@@ -1,0 +1,19 @@
+{{WECHAT_TITLE}}
+
+{{WECHAT_HOOK}}
+
+{{WECHAT_DETAILS}}
+
+{{WECHAT_STEPS}}
+
+{{WECHAT_CUSTOM}}
+
+🕒 活动时间：{{DATE}} {{TIME}}，共{{DURATION}}
+📍 活动地点：{{LOCATION}}
+
+{{INTRO}}✅
+{{REGISTRATION}}
+
+{{FOLLOW_UP}}
+
+{{CLOSING}}
