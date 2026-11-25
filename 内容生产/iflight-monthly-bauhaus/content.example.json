@@ -1,0 +1,158 @@
+{
+  "example": true,
+  "article": {
+    "title": "IF.Light 月榜赛｜填写本期标题"
+  },
+  "issue": {
+    "number": "SXX",
+    "volume": "XX",
+    "year": "20XX",
+    "roundLabel": "ROUND X",
+    "roundTitle": "本期怎么玩？"
+  },
+  "intro": {
+    "cards": [
+      {
+        "number": "TYPE / 01",
+        "titleHtml": "有想法<br>有作品",
+        "emphasis": "想被看见。",
+        "description": "想展示 Demo、课程作业或比赛项目，而不是交完就结束。",
+        "detail": "想找队友、获得反馈，让作品继续往下生长。"
+      },
+      {
+        "number": "TYPE / 02",
+        "titleHtml": "还不知道<br>做什么",
+        "emphasis": "也想参与。",
+        "description": "想加入一支队伍，从一个真实问题和应用场景开始。",
+        "detail": "想把手里的工具与资源，变成真正的作品。"
+      }
+    ],
+    "ctaTitle": "有项目来展示，没项目来组队。",
+    "ctaDescription": "填写本期参与方式与适合的人群。"
+  },
+  "hero": {
+    "facts": [
+      { "value": "¥X", "label": "填写本期奖励" },
+      { "value": "SXX", "date": "MM.DD—MM.DD", "label": "填写本期赛程" },
+      { "value": "大家说了算", "label": "学生真实体验后投票" }
+    ]
+  },
+  "growth": {
+    "paragraphs": [
+      "填写可推荐的校内外赛事、研学项目、社会实践项目等机会及适用条件。",
+      "填写项目推广、潜在商业价值、社区孵化或实习证明等权益的适用条件。"
+    ],
+    "tags": ["填写权益 A", "填写权益 B"],
+    "events": [],
+    "notice": "更多赛事与赛道信息，以正式公示为准。"
+  },
+  "awards": {
+    "mark": "¥X",
+    "items": [
+      {
+        "label": "PRIZE / 01",
+        "amountHtml": "¥X",
+        "description": "填写奖项、名额、金额及适用条件"
+      },
+      {
+        "label": "PRIZE / 02",
+        "amountHtml": "奖品 A",
+        "description": "填写奖品内容、获奖名额及适用条件"
+      },
+      {
+        "label": "PRIZE / 03",
+        "amountHtml": "证书",
+        "description": "填写证书或其他认可形式，不承诺未确认的权益"
+      }
+    ]
+  },
+  "support": {
+    "items": [
+      { "number": "03", "title": "真实用户与反馈", "description": "填写大众体验、同伴互评、用户测试或内测群等安排。" },
+      { "number": "04", "title": "项目展示与传播", "description": "填写项目页、社区推荐位、Meetup 或线下展示等安排。" },
+      { "number": "05", "title": "学习与创作资源", "description": "填写课程、实操分享、答疑、模板或部署服务等支持。" },
+      { "number": "06", "title": "项目制学习支持", "description": "填写本期项目制学习要求及相应支持，不使用未确认的权益。" }
+    ]
+  },
+  "timeline": {
+    "chips": ["发项目", "一起改", "大家投", "每月见"],
+    "items": [
+      {
+        "dateHtml": "发布<br>MM.DD",
+        "english": "SUBMISSION",
+        "title": "提交或重启项目。",
+        "descriptionHtml": "填写提交时间、提交方式与项目要求。"
+      },
+      {
+        "dateHtml": "整个<br>赛程",
+        "english": "BUILD IN PUBLIC",
+        "title": "持续更新，收集反馈。",
+        "descriptionHtml": "填写论坛更新、社区转发与反馈迭代的安排。",
+        "extraHtml": "更新 → 反馈 → 迭代"
+      },
+      {
+        "dateHtml": "MM.DD<br>—MM.DD",
+        "english": "VOTING",
+        "title": "真实体验后投票。",
+        "descriptionHtml": "填写投票窗口、每人每日票数、投票规则与投票期间的迭代安排。"
+      },
+      {
+        "dateHtml": "每月<br>一期",
+        "english": "NEXT ROUND",
+        "title": "填写后续安排。",
+        "descriptionHtml": "填写榜单公示、线下活动、后续支持或下一期安排。"
+      }
+    ]
+  },
+  "plaza": {
+    "paths": [
+      {
+        "label": "I HAVE A PROJECT →",
+        "title": "我有项目",
+        "descriptionHtml": "发布项目、寻找队友、展示 Demo。<br>填写本期项目提交入口与要求。"
+      },
+      {
+        "label": "I WANT TO JOIN →",
+        "title": "我想加入",
+        "descriptionHtml": "浏览待认领想法，从真实问题出发。<br>填写申请加入或成为负责人的方式。"
+      }
+    ],
+    "projectLabel": "本期项目展示——",
+    "note": "项目案例及上线状态以项目广场页面为准。",
+    "ctaHtml": "有项目，来发布；没项目，来组队。<br>挑一个感兴趣的方向，<br>和伙伴一起把想法做出来。"
+  },
+  "projects": [
+    {
+      "id": "example-a",
+      "name": "示例项目 A",
+      "descriptionHtml": "填写项目要解决的问题、当前进展与体验入口。",
+      "image": "",
+      "remoteImage": "",
+      "recruiting": true
+    },
+    {
+      "id": "example-b",
+      "name": "示例项目 B",
+      "descriptionHtml": "填写项目介绍，不沿用上一期的项目图片或数据。",
+      "image": "",
+      "remoteImage": "",
+      "recruiting": false
+    }
+  ],
+  "community": {
+    "stats": [
+      { "value": "N+", "label": "社区覆盖人数（填写）" },
+      { "value": "N+", "label": "活动参与人次（填写）" },
+      { "value": "N+", "label": "社区活动（填写）" }
+    ]
+  },
+  "credits": [
+    { "role": "文案", "name": "填写姓名" },
+    { "role": "设计", "name": "填写姓名" },
+    { "role": "审核", "name": "填写姓名" }
+  ],
+  "links": {
+    "forum": "https://forum.iflink.tech/projects",
+    "note": "赛事推荐、权益内容与项目案例，以当期正式公示为准。"
+  }
+}

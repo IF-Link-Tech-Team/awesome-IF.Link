@@ -17,6 +17,7 @@ IF.Link 社区自研、维护的可复用 Agent Skills 合集；个别第三方�
 | 技能 | 什么时候用 | 维护人 | 状态 |
 | --- | --- | --- | --- |
 | [iflink-wechat-content-production](内容生产/iflink-wechat-content-production/SKILL.md) | 将文稿和素材制作为可编辑公众号 HTML、分页图片和长图 | @Last-emo-boy | beta |
+| [iflight-monthly-bauhaus](内容生产/iflight-monthly-bauhaus/SKILL.md) | 复用月榜赛包豪斯模板，替换期次、赛程、奖项、项目与署名，导出 HTML、微信 SVG 和双长图 | @IF-Link-Tech-Team | beta |
 | [create-iflink-xhs](内容生产/create-iflink-xhs/SKILL.md) | 将教程和素材制作为小红书图文，保留真实配图与可复制步骤 | @Last-emo-boy | beta |
 | [iflink-community-radar](内容生产/iflink-community-radar/SKILL.md) | 将授权群聊整理为社区雷达、飞书文档、转发文案及新人归档 | @Last-emo-boy | beta |
 | [wechat-svg](内容生产/wechat-svg/SKILL.md) | 往公众号里贴 SVG、把 HTML/设计稿导入公众号、取图片固定链接，排查动效失效、掉字、箭头消失、尺寸异常 | @dawnear | beta |
