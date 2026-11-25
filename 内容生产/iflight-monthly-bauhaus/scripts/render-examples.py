@@ -12,16 +12,12 @@ content = json.loads((args.input.parent / "content.json").read_text(encoding="ut
 if content.get("example") is not True:
     raise RuntimeError("Example previews must come from content.example.json, not a real issue")
 scale = 1080 / 375
-sections = {
-    "hero": (0, 744),
-    "panels": (1358, 4426),
-    "projects": (5182, 6565),
-    "community": (6565, 8867),
-}
+example = json.loads((args.input.parent / "example-sections.json").read_text(encoding="utf-8"))
+sections = example["sections"]
 args.output.mkdir(parents=True, exist_ok=True)
 with Image.open(args.input) as source:
-    if source.width != 1080 or source.height != round(8867 * scale):
-        raise RuntimeError("Unexpected example image dimensions; render the unmodified example first")
+    if source.width != 1080 or source.height != round(example["designHeight"] * scale):
+        raise RuntimeError("Example image dimensions do not match example-sections.json; export the unmodified example again")
     cards = []
     for name, (top, bottom) in sections.items():
         image = source.crop((0, round(top * scale), source.width, round(bottom * scale)))

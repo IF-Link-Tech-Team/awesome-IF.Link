@@ -26,6 +26,8 @@ metadata:
 
 本 Skill 的 `build-wechat-svg.mjs` 仅适配 `templates/monthly.html` 的结构，不是任意 HTML 的通用转换器。
 
+模板专用例外：为保留几何板块的裁切效果，转换器会生成局部 `defs`、`clipPath`、`id` 与 `url(#...)` 引用。这不同于 `wechat-svg` 默认不依赖这些结构的原则；校验脚本会检查 ID 唯一性和引用完整性，但不能代替平台验收。秀米导入和公众号手机预览必须检查传送带、项目卡及折叠面板的裁切；目标平台过滤这些结构时，改用已导出的 PNG，不宣称 SVG 兼容。
+
 ## 每期必须替换的内容
 
 届次、年份、标题、赛程、投票规则、奖项与权益、推荐赛事、项目与图片、社区数据和署名，均以当期确认信息为准。不得把上一期的数据或图床地址当成默认值。
@@ -81,7 +83,7 @@ node scripts/export-long-images.mjs
 ### 4. 验收
 
 ```bash
-python scripts/validate-monthly.py \
+python3 scripts/validate-monthly.py \
   --html build/monthly.html \
   --svg build/monthly-wechat.svg \
   --parts-dir build/wechat-parts \
@@ -95,7 +97,7 @@ python scripts/validate-monthly.py \
 完整自检：
 
 ```bash
-python scripts/doctor.py --full
+python3 scripts/doctor.py --full
 ```
 
 ### 5. 可选秀米同步

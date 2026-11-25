@@ -37,8 +37,13 @@ def main():
         "scripts/export-long-images.mjs",
         "scripts/xiumi-import.mjs",
         "scripts/validate-monthly.py",
+        "scripts/render-examples.py",
         "references/style-guide.md",
         "references/configuration.md",
+        "references/examples/hero.png",
+        "references/examples/panels.png",
+        "references/examples/projects.png",
+        "references/examples/community.png",
         "references/examples/overview.png",
     ]
     for relative in required:
@@ -92,6 +97,7 @@ def main():
         if args.full:
             env = os.environ.copy()
             env["MONTHLY_BUILD_DIR"] = str(output)
+            env["PYTHON"] = sys.executable
             run(["node", "scripts/build-wechat-svg.mjs"], env)
             run(["node", "scripts/export-long-images.mjs"], env)
             result = run([
@@ -106,6 +112,15 @@ def main():
                 "--require-text", "示例项目 A",
             ], env)
             assert json.loads(result)["ok"] is True
+            previews = Path(temporary) / "previews"
+            run([
+                sys.executable,
+                "scripts/render-examples.py",
+                "--input", str(output / "monthly-SVG-1080.png"),
+                "--output", str(previews),
+            ], env)
+            for name in ["hero", "panels", "projects", "community", "overview"]:
+                assert (previews / f"{name}.png").is_file()
     print(json.dumps({"ok": True, "full": args.full, "realProjectAssetsInExample": False, "previousIssueContentInTemplate": False}, ensure_ascii=False))
 
 

@@ -117,7 +117,7 @@ try {
     outputs.push({ name: source.name, output, files, height, state });
     console.log(`${source.name}: ${height}px design height, ${state.textCount ?? 'DOM'} texts, ${state.visibleTextCount ?? 'rendered'} visible`);
   }
-  const python = `
+  const pythonSource = `
 from PIL import Image
 from pathlib import Path
 import json, sys
@@ -134,7 +134,8 @@ for item in json.loads(sys.argv[1]):
     result.append({'file': str(item['output']), 'width': canvas.width, 'height': canvas.height, 'bytes': Path(item['output']).stat().st_size})
 print(json.dumps(result, ensure_ascii=False, indent=2))
 `;
-  const merged = spawnSync('python', ['-c', python, JSON.stringify(outputs)], { encoding: 'utf8' });
+  const pythonCommand = process.env.PYTHON || (process.platform === 'win32' ? 'python' : 'python3');
+  const merged = spawnSync(pythonCommand, ['-c', pythonSource, JSON.stringify(outputs)], { encoding: 'utf8' });
   if (merged.status !== 0) throw new Error(merged.stderr || 'PNG stitching failed');
   console.log(merged.stdout);
   await send('Browser.close', {}, false);

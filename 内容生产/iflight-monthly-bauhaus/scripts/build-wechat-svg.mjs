@@ -501,9 +501,21 @@ function serializePage() {
   };
   const parts = makeParts();
   for (const el of transformed) el.style.removeProperty('transform');
+  const designHeight = Math.ceil($('#poster').getBoundingClientRect().height);
+  const monthlyRect = records.get($('.monthly')).rect;
+  const plazaRect = records.get($('.plaza')).rect;
+  const finaleRect = records.get($('.finale')).rect;
+  const previewSections = {
+    hero: [0, n(records.get($('.intro-grid')).rect.top)],
+    panels: [n(monthlyRect.top), n(Math.min(monthlyRect.top + 3068, plazaRect.top))],
+    projects: [n(plazaRect.top), n(plazaRect.bottom)],
+    community: [n(finaleRect.top), designHeight]
+  };
   return {
-    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="375" height="${Math.ceil($('#poster').getBoundingClientRect().height)}" viewBox="0 0 375 ${Math.ceil($('#poster').getBoundingClientRect().height)}" role="img" aria-label="${esc(window.__articleTitle)}" overflow="hidden" style="display:block;float:none;max-width:100%;height:auto;margin:0 auto"><rect width="375" height="${Math.ceil($('#poster').getBoundingClientRect().height)}" fill="#f4f1e8"/>${pieces.join('')}</svg>`,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="375" height="${designHeight}" viewBox="0 0 375 ${designHeight}" role="img" aria-label="${esc(window.__articleTitle)}" overflow="hidden" style="display:block;float:none;max-width:100%;height:auto;margin:0 auto"><rect width="375" height="${designHeight}" fill="#f4f1e8"/>${pieces.join('')}</svg>`,
     parts,
+    designHeight,
+    previewSections,
     stats: { textLines, logoPaths: (window.__logoMarkup.match(/<path/g) || []).length, domElements: all.length }
   };
 }
@@ -602,6 +614,12 @@ try {
   if (partErrors.some(Boolean)) throw new Error(`Invalid SVG fragment: ${partErrors.find(Boolean)}`);
   const oversized = result.parts.filter(part => part.bytes > 30000);
   if (oversized.length) throw new Error(`Oversized SVG fragments: ${JSON.stringify(oversized.map(part => ({ index: part.index, bytes: part.bytes })))}`);
+  if (content.example === true) {
+    fs.writeFileSync(path.join(buildDir, 'example-sections.json'), JSON.stringify({
+      designHeight: result.designHeight,
+      sections: result.previewSections
+    }, null, 2) + '\n');
+  }
   const partsDir = path.join(buildDir, `wechat-parts${suffix}`);
   fs.mkdirSync(partsDir, { recursive: true });
   for (const file of fs.readdirSync(partsDir)) if (/^\d+\.svg$/.test(file)) fs.unlinkSync(path.join(partsDir, file));

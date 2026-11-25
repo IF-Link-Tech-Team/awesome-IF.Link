@@ -60,6 +60,15 @@ def inspect_svg(path, errors, require_dual_href=True):
     for tag in ("script", "foreignObject"):
         if root.findall(f".//{{{SVG_NS}}}{tag}"):
             errors.append(f"{path.name}: unsupported {tag} found")
+    ids = [element.attrib["id"] for element in root.iter() if "id" in element.attrib]
+    if len(ids) != len(set(ids)):
+        errors.append(f"{path.name}: duplicate id found")
+    known_ids = set(ids)
+    for element in root.iter():
+        for value in element.attrib.values():
+            for reference in re.findall(r"url\(#([^)]+)\)", value):
+                if reference not in known_ids:
+                    errors.append(f"{path.name}: unresolved url(#...) reference: {reference}")
 
     texts = [element for element in root.iter(f"{{{SVG_NS}}}text") if "".join(element.itertext()).strip()]
     visible_texts = [element for element in texts if text_is_visible(element)]
